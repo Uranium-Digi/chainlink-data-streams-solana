@@ -4,10 +4,10 @@ Deployed Address: `Gt9S41PtjR58CbG9JhJ3J6vxesqrNAswbWYbLNTMZA3c`
 
 ## Integrating with the Verifier Program
 There is a lightweight Rust SDK for creating Solana program instructions to verify Chainlink Data Streams reports, supporting both on-chain and off-chain usage.
-- Link to the [Rust SDK](crates/chainlink-solana-data-streams/README.md)
+- Link to the [Rust SDK](../../crates/chainlink-solana-data-streams/README.md)
 
 If you are using something other than rust you can use the Anchor IDL as a base to interface with the verifier program.
-- Link to the [Anchor IDL](target/idl/verifier.json)
+- Link to the [Anchor IDL](../../target/idl/verifier.json)
 
 The accounts that are required to be passed to the verifier program are:
 - The verifier config account (PDA) (The SDK has a utility method to do this for you.)
