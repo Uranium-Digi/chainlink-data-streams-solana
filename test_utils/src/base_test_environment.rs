@@ -10,11 +10,11 @@ pub struct BaseTestSetup {
 }
 
 pub struct BaseTestSetupBuilder {
-    program_name: String,
+    program_name: &'static str,
     program_id: Pubkey,
     account_size: usize,
     additional_users: Vec<Pubkey>,
-    additional_programs: Vec<(String, Pubkey)>,
+    additional_programs: Vec<(&'static str, Pubkey)>,
     additional_zero_copy_accounts: Vec<(Pubkey, Pubkey, usize, Option<[u8; 8]>)>,
     compute_max_units: Option<u64>,
 }
@@ -22,7 +22,7 @@ pub struct BaseTestSetupBuilder {
 impl BaseTestSetupBuilder {
     pub fn new() -> Self {
         Self {
-            program_name: "default_program".to_string(),
+            program_name: &"default_program",
             program_id: Pubkey::default(),
             account_size: 0,
             additional_users: Vec::new(),
@@ -32,8 +32,8 @@ impl BaseTestSetupBuilder {
         }
     }
 
-    pub fn program_name(mut self, name: &str) -> Self {
-        self.program_name = name.to_string();
+    pub fn program_name(mut self, name: &'static str) -> Self {
+        self.program_name = name;
         self
     }
 
@@ -52,8 +52,8 @@ impl BaseTestSetupBuilder {
         self
     }
 
-    pub fn add_program(mut self, name: &str, program_id: Pubkey) -> Self {
-        self.additional_programs.push((name.to_string(), program_id));
+    pub fn add_program(mut self, name: &'static str, program_id: Pubkey) -> Self {
+        self.additional_programs.push((name, program_id));
         self
     }
 

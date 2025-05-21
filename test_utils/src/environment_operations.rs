@@ -3,7 +3,6 @@ use solana_program::rent::Rent;
 use solana_program_test::ProgramTest;
 use solana_sdk::account::Account;
 use solana_sdk::signature::{Keypair, Signer};
-use solana_test_framework::ProgramTestExtension;
 
 pub struct TestEnvironmentHelper {}
 
@@ -28,6 +27,8 @@ impl TestEnvironmentHelper {
             &[program_id.as_ref()],
             &solana_program::bpf_loader_upgradeable::id(),
         );
+        panic!("Not supported yet");
+        /*
         environment.add_bpf_program_with_program_data(
             program_name,
             program_id,
@@ -35,9 +36,10 @@ impl TestEnvironmentHelper {
             program_data_address,
             None,
         );
+        */
     }
 
-    pub fn add_program(environment: &mut ProgramTest, program_name: &str, program_id: Pubkey) {
+    pub fn add_program(environment: &mut ProgramTest, program_name: &'static str, program_id: Pubkey) {
         environment.add_program(program_name, program_id, None);
     }
 
@@ -72,7 +74,7 @@ pub struct TestEnvironment {
 }
 
 impl TestEnvironment {
-    pub fn new(program_name: &str, program_id: Pubkey, compute_max_units: Option<u64>) -> Self {
+    pub fn new(program_name: &'static str, program_id: Pubkey, compute_max_units: Option<u64>) -> Self {
         // Set up the environment
         let mut environment = ProgramTest::default();
 

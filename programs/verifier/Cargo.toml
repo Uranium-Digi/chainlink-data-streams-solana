@@ -16,9 +16,9 @@ cpi = ["no-entrypoint"]
 default = []
 
 [dependencies]
-anchor-lang = { version = "0.29.0", features = ["init-if-needed"] }
+anchor-lang = { version = "0.31.1", features = ["init-if-needed"] }
 sha3 = "0.10.6"
-solana-program = "1.18.26"
+solana-program = "2.1.0"
 snap = "1.1.1"
 ethabi = "18.0.0"
 hex-literal = "0.4.1"
@@ -28,6 +28,6 @@ access-controller = { version = "1.0.1", path = "../access-controller", default-
 bytemuck = "1.19.0"
 
 [dev-dependencies]
-solana-program-test = "1.18.26"
-solana-sdk = "1.18.26"
+solana-program-test = "2.1.0"
+solana-sdk = "2.1.0"
 test_utils = { path = "../../test_utils" }

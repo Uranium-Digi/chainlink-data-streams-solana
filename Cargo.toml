@@ -5,9 +5,6 @@ members = [
     "programs/verifier",
     "programs/access-controller",
 
-    # sdk
-    "crates/chainlink-solana-data-streams",
-
     # dependencies
     "test_utils",
 ]

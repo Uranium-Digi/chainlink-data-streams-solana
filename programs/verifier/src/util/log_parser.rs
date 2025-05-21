@@ -20,7 +20,7 @@ impl LogParser {
 
         let (discriminator, buffer) = bytes.split_at(DISCRIMINATOR_SIZE);
 
-        E::discriminator()
+        E::DISCRIMINATOR
             .eq(discriminator)
             .then(|| E::try_from_slice(buffer))?
             .ok()
